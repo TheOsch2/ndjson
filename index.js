@@ -12,7 +12,7 @@ express().get('/', async (req, res) => {
     res.writeHead(200, 'Ok', {
       'Content-Type': 'application/json' // 'application/x-ndjson'
     });
-    res.json({query: req.query.url});
+    res.json({query: req.query});
     return;
     // A temporary solution. The working one will load items one by one
     // to achieve a normal performance on ...s of records 
