@@ -15,7 +15,7 @@ express().get('/', async (req, res) => {
     const url = req.query.url;
     const incoming = await fetch(url);
     // Test
-    rmSync.writeHead(200, 'Ok', {
+    res.writeHead(200, 'Ok', {
       'Content-Type': 'application/json'
     });
     res.end(incoming);
