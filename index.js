@@ -14,11 +14,14 @@ express().get('/', async (req, res) => {
     // to achieve a normal performance on ...s of records 
     const url = req.query.url;
     const incoming = await fetch(url);
-    // Test
-    res.writeHead(200, 'Ok', {
-      'Content-Type': 'application/json'
-    });
-    res.end(await incoming.text());
+    const result = await incoming.json();
+    const responce = '';
+    if (!(result instanceof Array)) {
+      res.end(JSON.stringify(result));
+    } else {
+      result.forEach(item => res.write(JSON.stringify(item) + '\n'));
+      res.end();
+    }
   } catch (err) {
     console.log(err);
     res.writeHead(500, 'Server error', {
