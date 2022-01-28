@@ -9,7 +9,7 @@ express().get('/', (req, res) => {
       throw new Error('Correct call: "...?url=<url to fetch and convert>"');
     }
     res.writeHead(200, 'Ok');
-    res.end(util.inspect(req.query));
+    res.end(util.inspect(req.query.url));
   } catch (err) {
     console.log(err);
     res.writeHead(500, 'Server error', {
