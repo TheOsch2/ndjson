@@ -15,7 +15,7 @@ express().get('/', async (req, res) => {
     // A temporary solution. The working one will load items one by one
     // to achieve a normal performance on ...s of records 
     const url = res.query.url;
-    const incoming = await fetch(url).json();
+    const incoming = await fetch(url).text();
     // Test
     res.end(incoming);
   } catch (err) {
