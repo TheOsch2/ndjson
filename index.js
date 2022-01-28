@@ -1,5 +1,5 @@
-import express from 'express';
-import util from 'util';
+const express = require('express');
+const util = require('util');
 
 const PORT = process.env.PORT || 5000;
 
