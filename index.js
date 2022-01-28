@@ -9,11 +9,7 @@ express().get('/', async (req, res) => {
     if (!req.query || !req.query.url) {
       throw new Error('Correct call: "...?url=<url to fetch and convert>"');
     }
-    res.writeHead(200, 'Ok', {
-      'Content-Type': 'application/json' // 'application/x-ndjson'
-    });
-    res.json({query: req.query});
-    return;
+    res.json({query: req.query}); 
     // A temporary solution. The working one will load items one by one
     // to achieve a normal performance on ...s of records 
     const url = req.query.url;
