@@ -7,14 +7,12 @@ const PORT = process.env.PORT || 5000;
 express().get('/', async (req, res) => {
   try {
     if (!req.query || !req.query.url) {
-      throw new Error('Correct call: "...?url=<url to fetch and convert>"');
+      throw new Error('Correct call: "...?url=<url to fetch and convert> (don\'t forget to replace & with &26)"');
     }
-    res.json({query: req.query}); 
     // A temporary solution. The working one will load items one by one
     // to achieve a normal performance on ...s of records 
     const url = req.query.url;
     const incoming = await fetch(url);
-    const incomingText = await incoming.text();
     // Test
     res.end(incoming);
   } catch (err) {
