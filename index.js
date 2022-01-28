@@ -18,7 +18,7 @@ express().get('/', async (req, res) => {
     res.writeHead(200, 'Ok', {
       'Content-Type': 'application/json'
     });
-    res.end(incoming.text());
+    res.end(await incoming.text());
   } catch (err) {
     console.log(err);
     res.writeHead(500, 'Server error', {
