@@ -1,6 +1,6 @@
-const express = require('express');
-const util = require('util');
-const fetch = require('node-fetch');
+import express from 'express';
+import util from 'util';
+import fetch from 'node-fetch';
 
 const PORT = process.env.PORT || 5000;
 
