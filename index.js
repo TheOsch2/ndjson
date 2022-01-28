@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000;
 express().get('/', (req, res) => {
   try {
     // Test yet
-    req.writeHead(200, 'Ok');
+    res.writeHead(200, 'Ok');
     res.end(util.inspect(req.query));
   } catch (err) {
     console.log(err);
